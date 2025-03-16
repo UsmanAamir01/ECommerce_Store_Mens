@@ -1,0 +1,663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E2C814ED-F0BB-4483-9762-AFB869A687CB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>EcommerceStoreDB</RootNamespace>
+    <AssemblyName>EcommerceStoreDB</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itext.barcodes, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.bouncy-castle-connector, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.bouncy-castle-connector.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.commons, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.commons.9.0.0\lib\net461\itext.commons.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfua, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.pdfua.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=9.0.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.9.0.0\lib\net461\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.5.0.0\lib\net461\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.5.0.0\lib\net461\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.5.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.23.0\lib\net462\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Formats.Asn1, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Formats.Asn1.6.0.0\lib\net461\System.Formats.Asn1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.1\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\CashierService.cs" />
+    <Compile Include="BLL\CustomerBLL.cs" />
+    <Compile Include="BLL\DeliveryBLL.cs" />
+    <Compile Include="BLL\DeliveryPersonBLL.cs" />
+    <Compile Include="BLL\FeedbackBLL.cs" />
+    <Compile Include="BLL\FeedbackService.cs" />
+    <Compile Include="BLL\InventoryManager.cs" />
+    <Compile Include="BLL\ManagerProfileBO.cs" />
+    <Compile Include="BLL\NotificationManager.cs" />
+    <Compile Include="BLL\OrderHandler.cs" />
+    <Compile Include="BLL\OrderManager.cs" />
+    <Compile Include="BLL\OrderProcessor.cs" />
+    <Compile Include="BLL\OrderService.cs" />
+    <Compile Include="BLL\ProductManager.cs" />
+    <Compile Include="BLL\ProductService.cs" />
+    <Compile Include="BLL\RefundManager.cs" />
+    <Compile Include="BLL\RefundRequestsBLL.cs" />
+    <Compile Include="BLL\ReportBLL.cs" />
+    <Compile Include="BLL\ReportBO.cs" />
+    <Compile Include="BLL\SalaryManager.cs" />
+    <Compile Include="BLL\SettingsBLL.cs" />
+    <Compile Include="BLL\ShipmentManager.cs" />
+    <Compile Include="BLL\UserService.cs" />
+    <Compile Include="BLL\WishlistBLL.cs" />
+    <Compile Include="DAL\CashierDAL.cs" />
+    <Compile Include="DAL\CustomerDAO.cs" />
+    <Compile Include="DAL\DeliveryDALcs.cs" />
+    <Compile Include="DAL\DeliveryPersonDAO.cs" />
+    <Compile Include="DAL\FeedbackDAL.cs" />
+    <Compile Include="DAL\FeedbackRepository.cs" />
+    <Compile Include="DAL\InventoryRepository.cs" />
+    <Compile Include="DAL\ManagerDAL.cs" />
+    <Compile Include="DAL\NotificationRepository.cs" />
+    <Compile Include="DAL\OrderDAO.cs" />
+    <Compile Include="DAL\OrderDataAccess.cs" />
+    <Compile Include="DAL\OrderRepository.cs" />
+    <Compile Include="DAL\OrderStore.cs" />
+    <Compile Include="DAL\PorductsDAL.cs" />
+    <Compile Include="DAL\ProductRepository.cs" />
+    <Compile Include="DAL\RefundDataAccess.cs" />
+    <Compile Include="DAL\RefundRequestsDAL.cs" />
+    <Compile Include="DAL\ReportDAL.cs" />
+    <Compile Include="DAL\ReportDAO.cs" />
+    <Compile Include="DAL\SalaryDAL.cs" />
+    <Compile Include="DAL\SettingsDAL.cs" />
+    <Compile Include="DAL\ShipmentDataAccess.cs" />
+    <Compile Include="DAL\UserDAL.cs" />
+    <Compile Include="DAL\UserRepository.cs" />
+    <Compile Include="DAL\WishlistDAL.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="PL\AddToCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\AddToCart.Designer.cs">
+      <DependentUpon>AddToCart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\AdminPortal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\AdminPortal.Designer.cs">
+      <DependentUpon>AdminPortal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\AdminProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\AdminProfile.Designer.cs">
+      <DependentUpon>AdminProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BLL\AuthLogic.cs" />
+    <Compile Include="PL\CashierPortal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\CashierPortal.Designer.cs">
+      <DependentUpon>CashierPortal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\CashierProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\CashierProfile.Designer.cs">
+      <DependentUpon>CashierProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Categories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Categories.Designer.cs">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Category2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Category2.Designer.cs">
+      <DependentUpon>Category2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Category3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Category3.Designer.cs">
+      <DependentUpon>Category3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\CheckoutPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\CheckoutPage.Designer.cs">
+      <DependentUpon>CheckoutPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\CustomerPortal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\CustomerPortal.Designer.cs">
+      <DependentUpon>CustomerPortal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\CustomerProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\CustomerProfile.Designer.cs">
+      <DependentUpon>CustomerProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\AuthDataAccess.cs" />
+    <Compile Include="PL\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database.cs" />
+    <Compile Include="PL\DeliveryPersonPortal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\DeliveryPersonPortal.Designer.cs">
+      <DependentUpon>DeliveryPersonPortal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\DeliveryPersonProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\DeliveryPersonProfile.Designer.cs">
+      <DependentUpon>DeliveryPersonProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Feedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Feedback.Designer.cs">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\GenerateInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\GenerateInvoice.Designer.cs">
+      <DependentUpon>GenerateInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\GuestDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\GuestDashboard.Designer.cs">
+      <DependentUpon>GuestDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\MainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\MainPage.Designer.cs">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ManageInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ManageInventory.Designer.cs">
+      <DependentUpon>ManageInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ManageOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ManageOrders.Designer.cs">
+      <DependentUpon>ManageOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ManageProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ManageProduct.Designer.cs">
+      <DependentUpon>ManageProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ManagerPortal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ManagerPortal.Designer.cs">
+      <DependentUpon>ManagerPortal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ManagerProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ManagerProfile.Designer.cs">
+      <DependentUpon>ManagerProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs" />
+    <Compile Include="PL\MyWishList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\MyWishList.Designer.cs">
+      <DependentUpon>MyWishList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Notifications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Notifications.Designer.cs">
+      <DependentUpon>Notifications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Category1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Category1.Designer.cs">
+      <DependentUpon>Category1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PL\RefundRequests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\RefundRequests.Designer.cs">
+      <DependentUpon>RefundRequests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ReplyFeedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ReplyFeedback.Designer.cs">
+      <DependentUpon>ReplyFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ManageRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ManageRoles.Designer.cs">
+      <DependentUpon>ManageRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Schedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Schedule.Designer.cs">
+      <DependentUpon>Schedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ShipmentStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ShipmentStatus.Designer.cs">
+      <DependentUpon>ShipmentStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\SignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\SignUp.Designer.cs">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Store.cs" />
+    <Compile Include="PL\ViewDeliveries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ViewDeliveries.Designer.cs">
+      <DependentUpon>ViewDeliveries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ViewFeedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ViewFeedback.Designer.cs">
+      <DependentUpon>ViewFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ViewNotifications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ViewNotifications.Designer.cs">
+      <DependentUpon>ViewNotifications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ViewOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ViewOrder.Designer.cs">
+      <DependentUpon>ViewOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ViewOrderHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ViewOrderHistory.Designer.cs">
+      <DependentUpon>ViewOrderHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ViewOrdersofManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ViewOrdersofManager.Designer.cs">
+      <DependentUpon>ViewOrdersofManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ViewProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ViewProducts.Designer.cs">
+      <DependentUpon>ViewProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ViewRefunds.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ViewRefunds.Designer.cs">
+      <DependentUpon>ViewRefunds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ViewReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ViewReports.Designer.cs">
+      <DependentUpon>ViewReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\ViewSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\ViewSalary.Designer.cs">
+      <DependentUpon>ViewSalary.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="PL\AddToCart.resx">
+      <DependentUpon>AddToCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\AdminPortal.resx">
+      <DependentUpon>AdminPortal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\AdminProfile.resx">
+      <DependentUpon>AdminProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\CashierPortal.resx">
+      <DependentUpon>CashierPortal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\CashierProfile.resx">
+      <DependentUpon>CashierProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Categories.resx">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Category1.resx">
+      <DependentUpon>Category1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Category2.resx">
+      <DependentUpon>Category2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Category3.resx">
+      <DependentUpon>Category3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\CheckoutPage.resx">
+      <DependentUpon>CheckoutPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\CustomerPortal.resx">
+      <DependentUpon>CustomerPortal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\CustomerProfile.resx">
+      <DependentUpon>CustomerProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\DeliveryPersonPortal.resx">
+      <DependentUpon>DeliveryPersonPortal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\DeliveryPersonProfile.resx">
+      <DependentUpon>DeliveryPersonProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Feedback.resx">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\GenerateInvoice.resx">
+      <DependentUpon>GenerateInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\GuestDashboard.resx">
+      <DependentUpon>GuestDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\MainPage.resx">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ManageInventory.resx">
+      <DependentUpon>ManageInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ManageOrders.resx">
+      <DependentUpon>ManageOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ManageProduct.resx">
+      <DependentUpon>ManageProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ManagerPortal.resx">
+      <DependentUpon>ManagerPortal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ManagerProfile.resx">
+      <DependentUpon>ManagerProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\MyWishList.resx">
+      <DependentUpon>MyWishList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Notifications.resx">
+      <DependentUpon>Notifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\RefundRequests.resx">
+      <DependentUpon>RefundRequests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ReplyFeedback.resx">
+      <DependentUpon>ReplyFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ManageRoles.resx">
+      <DependentUpon>ManageRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Schedule.resx">
+      <DependentUpon>Schedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ShipmentStatus.resx">
+      <DependentUpon>ShipmentStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\SignUp.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ViewDeliveries.resx">
+      <DependentUpon>ViewDeliveries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ViewFeedback.resx">
+      <DependentUpon>ViewFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ViewNotifications.resx">
+      <DependentUpon>ViewNotifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ViewOrder.resx">
+      <DependentUpon>ViewOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ViewOrderHistory.resx">
+      <DependentUpon>ViewOrderHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ViewOrdersofManager.resx">
+      <DependentUpon>ViewOrdersofManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ViewProducts.resx">
+      <DependentUpon>ViewProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ViewRefunds.resx">
+      <DependentUpon>ViewRefunds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ViewReports.resx">
+      <DependentUpon>ViewReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\ViewSalary.resx">
+      <DependentUpon>ViewSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\baggy_jeans.jpg" />
+    <Content Include="Images\bomber_jackets.jpg" />
+    <Content Include="Images\button_up_shirts.jpg" />
+    <Content Include="Images\cardigans.jpg" />
+    <Content Include="Images\cargo_pants.jpg" />
+    <Content Include="Images\formal_trousers.jpg" />
+    <Content Include="Images\full_sleeve_shirts.jpg" />
+    <Content Include="Images\hoodies.jpg" />
+    <Content Include="Images\overcoats.jpg" />
+    <Content Include="Images\pleated_pants.jpg" />
+    <Content Include="Images\polo_shirts.jpg" />
+    <Content Include="Images\puffer_jackets.jpg" />
+    <Content Include="Images\ribbed_tank_tops.jpg" />
+    <Content Include="Images\short_sleeve_shirts.jpg" />
+    <Content Include="Images\slim_fit_pants.jpg" />
+    <Content Include="Images\tailored_chinos.jpg" />
+    <Content Include="Images\t_shirts.jpg" />
+    <Content Include="Images\varsity_jackets.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Text.Json.6.0.1\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.1\build\System.Text.Json.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Text.Json.6.0.1\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.1\build\System.Text.Json.targets'))" />
+  </Target>
+</Project>
